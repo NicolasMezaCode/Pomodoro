@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: #1a1e23;
+  margin: 0;
+}
 :root {
   font-family:'Poppins', sans-serif;;
   font-size: 16px;
@@ -32,7 +36,6 @@ h1 {
   line-height: 1.1;
 }
 
-
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -50,3 +53,5 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+

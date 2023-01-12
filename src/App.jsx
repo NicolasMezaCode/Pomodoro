@@ -1,3 +1,4 @@
+import Background from "./components/Background"
 import Header from "./components/Header"
 import ColorProvider from "./context/ColorContext"
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <ColorProvider>
         <Header />
+        <Background/>
       </ColorProvider>
     </div>
   )
