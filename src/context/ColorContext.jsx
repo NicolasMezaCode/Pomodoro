@@ -10,7 +10,7 @@ export function useColor(){
 const theme = {
     primary: {
         main:'#C94E77',
-        darker:'#AA325A'
+        darker:'#da0049'
     },
     secondary: {
         main:'#005F87',
