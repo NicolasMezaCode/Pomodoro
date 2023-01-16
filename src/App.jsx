@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <ColorProvider>
         <Header />
-        <Background/>
         <Counter/>
+        <Background/>
       </ColorProvider>
     </div>
   )

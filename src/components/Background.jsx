@@ -1,5 +1,5 @@
 import React from 'react'
-import '../bubbles.scss'
+import '../styles/bubbles.scss'
 export default function Background() {
   return (
     <div className='bubbles'>
