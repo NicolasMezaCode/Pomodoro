@@ -10,15 +10,18 @@ export function useColor(){
 const theme = {
     primary: {
         main:'#C94E77',
-        darker:'#da0049'
+        darker:'#da0049',
+        backgroundButton:'#AA325A'
     },
     secondary: {
         main:'#005F87',
-        darker:'#024D6C'
+        darker:'#2B93BE',
+        backgroundButton:'#004C6B'
     },
     tertiary: {
         main:'#2E8375',
-        darker:'#156B5D'
+        darker:'#35B7A1',
+        backgroundButton:'#1B5A4C'
     }
 }
 

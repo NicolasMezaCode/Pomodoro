@@ -5,10 +5,33 @@ export default function Counter() {
   const [minutes, setMinutes] = useState(25)
   const [seconds, setSeconds] = useState(0)
   const [isActive, setIsActive] = useState(false)
-  const {color} = useColor();
+  const [options, setOptions] = useState('pomodoro')
+  const {color,changeColor} = useColor();
   const handleBegin=()=>{
     setIsActive(!isActive)
   }
+  const handlePomodoro=()=>{
+    setMinutes(25)
+    setSeconds(0)
+    setOptions('pomodoro')
+    changeColor('primary')
+    setIsActive(false)
+  }
+  const handleShort=()=>{
+    setMinutes(5)
+    setSeconds(0)
+    setOptions('short')
+    changeColor('secondary')
+    setIsActive(false)
+  }
+  const handleLong=()=>{
+    setMinutes(15)
+    setSeconds(0)
+    setOptions('long')
+    changeColor('tertiary')
+    setIsActive(false)
+  }
+  const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
   useEffect(() => {
     let interval = null;
     if (isActive) {
@@ -32,13 +55,24 @@ export default function Counter() {
   },[minutes,seconds,isActive])
   return (
     <main className='absolute flex justify-center items-center w-screen z-30 mt-10'>
-      <section className='flex flex-col justify-center items-center p-8 rounded-md' style={{backgroundColor:`${color.main}`,}}>
-        <div className='min-w-[480px] min-w-[300]  flex justify-center items-baseline' >
-          <h2 className='font-semibold text-9xl'>{minutes}:{seconds}</h2>
+      <section className='flex flex-col justify-center items-center p-8 rounded-lg' style={{backgroundColor:`${color.main}`,}}>
+        <div className='flex justify-between items-center'>
+          <button onClick={handlePomodoro} className='p-2 rounded-lg cursor-pointer mr-3' style={{backgroundColor:options==='pomodoro'?`${color.backgroundButton}`:null,}}>
+            Pomodoro
+          </button>
+          <button onClick={handleShort} className='p-2 rounded-lg cursor-pointer mr-3' style={{backgroundColor:options==='short'?`${color.backgroundButton}`:null,}}>
+            Short Break
+          </button>
+          <button onClick={handleLong} className='p-2 rounded-lg cursor-pointer' style={{backgroundColor:options==='long'?`${color.backgroundButton}`:null,}} >
+            Long Break
+          </button>
         </div>
-        <button onClick={handleBegin} className='relative btn3 mt-12 border border-white font-semibold tracking-wider leading-none w-32'>
-          <span className='absolute inset-0 bg-white'></span>
-          <div className='relative px-8 py-3 text-xl' style={{backgroundColor:`${color.main}`,}}>
+        <div className='min-w-[480px] min-w-[300] flex justify-center items-baseline mt-12 mb-12' >
+          <h2 className='font-semibold text-9xl'>{minutes}:{formattedSeconds}</h2>
+        </div>
+        <button onClick={handleBegin} className='relative btn3 border border-white font-semibold tracking-wider leading-none w-32 rounded-md'>
+          <span className='absolute inset-0 bg-white rounded-md'></span>
+          <div className='relative px-8 py-3 text-xl rounded-md' style={{backgroundColor:`${color.main}`}}>
             {isActive ? 'Pause' : 'Start'}
           </div>
         </button>
