@@ -67,7 +67,7 @@ export default function Counter() {
             Long Break
           </button>
         </div>
-        <div className='min-w-[480px] min-w-[300] flex justify-center items-baseline mt-12 mb-12' >
+        <div className='min-w-[480px] flex justify-center items-baseline mt-12 mb-12' >
           <h2 className='font-semibold text-9xl'>{minutes}:{formattedSeconds}</h2>
         </div>
         <button onClick={handleBegin} className='relative btn3 border border-white font-semibold tracking-wider leading-none w-32 rounded-md'>
