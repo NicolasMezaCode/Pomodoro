@@ -14,7 +14,8 @@ module.exports = {
         "Blue-lagoon":"#005F87",
         "Dark-blue":"#024D6C",
         "Elm":"#2E8375",
-        "Dark-Elm":"#156B5D"
+        "Dark-Elm":"#156B5D",
+        "not-white":"rgb(249,232,237)"
       },
     },
   },
