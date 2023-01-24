@@ -1,7 +1,6 @@
 import React from 'react'
-import {IoIosTimer} from 'react-icons/Io'
-import{IoMdSettings} from 'react-icons/Io'
-import{AiFillInfoCircle} from 'react-icons/Ai'
+import{IoMdSettings,IoIosTimer} from 'react-icons/io'
+import{AiFillInfoCircle} from 'react-icons/ai'
 import {useColor} from '../context/ColorContext'
 export default function Header() {
   const {color} = useColor();

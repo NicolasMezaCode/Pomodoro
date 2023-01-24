@@ -1,7 +1,7 @@
 import React,{useState,useRef} from 'react'
 import {useColor} from '../context/ColorContext'
-import {MdOutlineAppRegistration} from 'react-icons/Md'
-import {AiFillPlusCircle} from 'react-icons/Ai'
+import {MdOutlineAppRegistration} from 'react-icons/md'
+import {AiFillPlusCircle} from 'react-icons/ai'
 import SingleTask from './SingleTask'
 export default function Tasks() {
     const [open, setOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React from 'react'
-import {AiFillCheckCircle} from 'react-icons/Ai'
-import{BiDotsVerticalRounded} from 'react-icons/Bi'
+import {AiFillCheckCircle} from 'react-icons/ai'
+import{BiDotsVerticalRounded} from 'react-icons/bi'
 export default function SingleTask({task,pomodoros,index}) {
   return (
     <div className='flex justify-between items-center w-full mt-4 p-4 border-solid border-not-white border-2 rounded-lg'>
