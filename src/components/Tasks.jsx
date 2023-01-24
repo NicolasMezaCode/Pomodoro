@@ -50,7 +50,7 @@ export default function Tasks() {
           }
           {
             open ? 
-            <span className='sm:min-w-[480px] min-w-[350px]  bg-not-white h-52  text-slate-600 text-xl rounded-lg'>
+            <span className='sm:min-w-[480px] min-w-[350px]  bg-not-white h-52  text-slate-600 text-xl rounded-lg mt-4'>
                 <div className='w-full h-full flex justify-center items-center flex-col'>
                     <input type="text" placeholder='What you plan to do ?' ref={inputRef} className='bg-transparent' />
                     <p className='mt-3'>Est Pomodoros</p>
