@@ -1,13 +1,13 @@
 import React,{useState,useRef} from 'react'
 import {useColor} from '../context/ColorContext'
-import {MdOutlineAppRegistration} from 'react-icons/md'
+import {AiOutlineBars} from 'react-icons/ai'
 import {AiFillPlusCircle} from 'react-icons/ai'
 import SingleTask from './SingleTask'
 export default function Tasks() {
     const [open, setOpen] = useState(false);
     const [pomodoros, setPomodoros] = useState(1);
     const [tasks, setTasks] = useState([]);
-    const {color} = useColor();
+    const {color,counter} = useColor();
     const inputRef = useRef();
     const handleTask = () => {
       setOpen(true);
@@ -24,19 +24,18 @@ export default function Tasks() {
         setTasks([...tasks,newTask]);
         setPomodoros(1);
     }
-    console.log(tasks);
   return (
     <section className='w-screen flex justify-center'>
         <div className='absolute  sm:min-w-[480px] mt-[30rem] flex justify-between flex-col items-center p-8 z-30 rounded-lg mb-20' style={{backgroundColor:`${color.main}`}}>
           <div className='flex justify-between items-center w-full mb-5'> 
             <h3 className='text-xl font-semibold'>Tasks</h3>
             <button>
-                <MdOutlineAppRegistration className='h-auto w-7'/>
+                <AiOutlineBars className='h-auto w-6'/>
             </button>
           </div>
           {tasks.length > 0 ?
             tasks.map((task) => {
-              return <SingleTask task={task.task} pomodoros={task.pomodoros} key={task.key} index={task.key} />
+              return <SingleTask task={task.task} pomodoros={task.pomodoros} key={task.key} index={task.key} counter={counter} />
             }
             )
             : null

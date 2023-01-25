@@ -1,35 +1,56 @@
 import React,{useEffect, useState} from 'react'
 import {useColor} from '../context/ColorContext'
+import {useUser} from '../context/UserContext'
 import "../styles/counter.css"
 export default function Counter() {
-  const [minutes, setMinutes] = useState(25)
+  const[pomo,setPomo] = useState(25)
+  const [short, setShort] = useState(5)
+  const [long, setLong] = useState(15)
+  const [minutes, setMinutes] = useState(pomo)
   const [seconds, setSeconds] = useState(0)
   const [isActive, setIsActive] = useState(false)
   const [options, setOptions] = useState('pomodoro')
   const {color,changeColor} = useColor();
+  const {counter,counterChange} = useUser();
   const handleBegin=()=>{
     setIsActive(!isActive)
   }
-  const handlePomodoro=()=>{
-    setMinutes(25)
+  const handlePomodoro=(active)=>{
+    setMinutes(pomo)
     setSeconds(0)
     setOptions('pomodoro')
     changeColor('primary')
-    setIsActive(false)
+    if(active===true){
+      setIsActive(true)
+    }
+    else{
+      setIsActive(false)
+    }
+    
   }
-  const handleShort=()=>{
-    setMinutes(5)
+  const handleShort=(active)=>{
+    setMinutes(short)
     setSeconds(0)
     setOptions('short')
     changeColor('secondary')
-    setIsActive(false)
+    if(active===true){
+      setIsActive(true)
+    }
+    else{ 
+      setIsActive(false)
+    }
   }
-  const handleLong=()=>{
-    setMinutes(15)
+  const handleLong=(active)=>{
+    setMinutes(long)
     setSeconds(0)
     setOptions('long')
     changeColor('tertiary')
-    setIsActive(false)
+    if(active===true){
+      setIsActive(true)
+    }
+    else{
+      setIsActive(false)
+    }
   }
   const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
   useEffect(() => {
@@ -41,7 +62,14 @@ export default function Counter() {
         }
         if (seconds === 0) {
           if (minutes === 0) {
+            counterChange(true)
             clearInterval(interval);
+            if(options==='pomodoro'){
+              handleShort(true)
+            }
+            else{
+              handlePomodoro(true)
+            }
           } else {
             setMinutes(minutes => minutes - 1);
             setSeconds(59);
@@ -49,6 +77,7 @@ export default function Counter() {
         } 
       }, 1000);
     } else if (!isActive && seconds !== 0) {
+      console.log('paused')
       clearInterval(interval);
     }
     return () => clearInterval(interval);

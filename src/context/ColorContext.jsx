@@ -27,7 +27,6 @@ const theme = {
 
 export default function ColorProvider({children}) {
     const [color,setColor] = useState(theme.primary);
-
     function changeColor(colorChange){
         const selectedColor = theme[colorChange];
         if(selectedColor){
