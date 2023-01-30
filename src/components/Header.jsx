@@ -77,9 +77,11 @@ export default function HeaderBar() {
         />
       </Modal.Actions>
     </Modal>
-        <button className='flex justify-center items-center ' style={{backgroundColor:`${color.main}`,transition:'background-color 0.4s ease-in-out 0s'}} >
+        <button className='flex justify-center items-center  hover:text-white ' style={{backgroundColor:`${color.main}`,transition:'background-color 0.4s ease-in-out 0s'}} >
           <AiFillInfoCircle />
-          <span className='ml-1'>Info</span>
+          <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">
+            <p className='ml-1  hover:text-white '>Info</p>
+          </a>
         </button>
       </div>
     </header>
