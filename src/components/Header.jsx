@@ -13,7 +13,7 @@ export default function HeaderBar() {
   const longRef = React.useRef()
   return (
     <header className='flex justify-center bg-transparent max-h-16 z-30'>
-      <div className='w-screen flex justify-between lg:justify-center items-center flex-row p-2 ' style={{backgroundColor:`${color.main}`,transition:'background-color 0.4s ease-in-out 0s'}}>
+      <div className='w-full flex justify-between lg:justify-center items-center flex-row p-2 ' style={{backgroundColor:`${color.main}`,transition:'background-color 0.4s ease-in-out 0s'}}>
         <div className='flex justify-center items-center mr-10'>
           <IoIosTimer className='h-auto w-6 sm:w-9 ' />
           <a href="" className='hover:text-white' >
