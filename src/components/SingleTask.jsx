@@ -53,7 +53,7 @@ const {counter,counterChange,deleteTask,editTask} = useUser()
                 </div>
             </span>
             :
-            <div className='flex justify-between items-center w-full mt-4 p-4 border-solid border-not-white border-2 rounded-lg'style={{textDecoration:checked?"line-through":null,color:checked?"#c2c2c2":null,border:checked?"#c2c2c2,solid,2px":""}}>
+            <div className='flex justify-between items-center sm:min-w-[480px] min-w-[350px] mt-4 p-4 border-solid border-not-white border-2 rounded-lg'style={{textDecoration:checked?"line-through":null,color:checked?"#c2c2c2":null,border:checked?"#c2c2c2,solid,2px":""}}>
               <button onClick={handleCheck}>
                 <AiFillCheckCircle className='h-auto w-6 hover:text-white text-slate-300' />
               </button>
