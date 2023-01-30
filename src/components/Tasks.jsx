@@ -1,14 +1,16 @@
 import React,{useState,useRef} from 'react'
 import {useColor} from '../context/ColorContext'
-import {AiOutlineBars} from 'react-icons/ai'
+
 import {AiFillPlusCircle} from 'react-icons/ai'
 import SingleTask from './SingleTask'
+import {useUser} from '../context/UserContext'
+import { Dropdown } from "semantic-ui-react";
 export default function Tasks() {
     const [open, setOpen] = useState(false);
     const [pomodoros, setPomodoros] = useState(1);
-    const [tasks, setTasks] = useState([]);
     const {color,counter} = useColor();
     const inputRef = useRef();
+    const {addTask,tasks,setTasks} = useUser();
     const handleTask = () => {
       setOpen(true);
     }
@@ -18,10 +20,10 @@ export default function Tasks() {
     const handleSave = () => {
         setOpen(false);
         const task = inputRef.current.value;
-        const newTask = {
+        const createdTask = {
             task,pomodoros:parseInt(pomodoros),key:crypto.randomUUID()
         }
-        setTasks([...tasks,newTask]);
+        addTask(createdTask);
         setPomodoros(1);
     }
   return (
@@ -29,9 +31,14 @@ export default function Tasks() {
         <div className='absolute  sm:min-w-[480px] mt-[30rem] flex justify-between flex-col items-center p-8 z-30 rounded-lg mb-20' style={{backgroundColor:`${color.main}`}}>
           <div className='flex justify-between items-center w-full mb-5'> 
             <h3 className='text-xl font-semibold'>Tasks</h3>
-            <button>
-                <AiOutlineBars className='h-auto w-6'/>
-            </button>
+            <>
+            <Dropdown text='Edit'  className='text-slate-300 hover:text-white'>
+                  <Dropdown.Menu>
+                      <Dropdown.Item text='Delete All' onClick={()=>{setTasks([])}}/>
+                  </Dropdown.Menu>
+            </Dropdown>
+            </>
+             
           </div>
           {tasks.length > 0 ?
             tasks.map((task) => {

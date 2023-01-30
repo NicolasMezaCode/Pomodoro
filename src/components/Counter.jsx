@@ -3,15 +3,14 @@ import {useColor} from '../context/ColorContext'
 import {useUser} from '../context/UserContext'
 import "../styles/counter.css"
 export default function Counter() {
-  const[pomo,setPomo] = useState(25)
-  const [short, setShort] = useState(5)
-  const [long, setLong] = useState(15)
+  const {counter,counterChange,short,pomo,long} = useUser();
+  const {color,changeColor} = useColor();
   const [minutes, setMinutes] = useState(pomo)
   const [seconds, setSeconds] = useState(0)
   const [isActive, setIsActive] = useState(false)
   const [options, setOptions] = useState('pomodoro')
-  const {color,changeColor} = useColor();
-  const {counter,counterChange} = useUser();
+
+
   const handleBegin=()=>{
     setIsActive(!isActive)
   }
@@ -53,6 +52,17 @@ export default function Counter() {
     }
   }
   const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+  useEffect(()=>{
+    if(options==='pomodoro'){
+      setMinutes(pomo)
+    }
+    else if(options==='short'){
+      setMinutes(short)
+    }
+    else{
+      setMinutes(long)
+    }
+  },[pomo,short,long])
   useEffect(() => {
     let interval = null;
     if (isActive) {

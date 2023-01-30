@@ -1,6 +1,6 @@
 import Background from "./components/Background"
 import Counter from "./components/Counter"
-import Header from "./components/Header"
+import HeaderBar from "./components/Header"
 import Tasks from "./components/Tasks"
 import ColorProvider from "./context/ColorContext"
 import UserProvider from "./context/UserContext"
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <UserProvider>
         <ColorProvider>
-          <Header />
+          <HeaderBar />
           <Counter/>
           <Tasks/>
           <Background/>
