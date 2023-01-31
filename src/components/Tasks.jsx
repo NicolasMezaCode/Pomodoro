@@ -32,7 +32,7 @@ export default function Tasks() {
           <div className='flex justify-between items-center w-full mb-5'> 
             <h3 className='text-xl font-semibold'>Tasks</h3>
             <>
-            <Dropdown text='Edit'  className='text-slate-300 hover:text-white'>
+            <Dropdown text='Edit' direction='left'  className='text-slate-300 hover:text-white'>
                   <Dropdown.Menu>
                       <Dropdown.Item text='Delete All' onClick={()=>{setTasks([])}}/>
                   </Dropdown.Menu>
